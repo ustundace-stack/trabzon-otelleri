@@ -1,0 +1,191 @@
+// Mock otel verisi — Infrastructure Data Layer
+// Gerçek bir senaryoda bu veriler bir veritabanı veya API'dan çekilecektir.
+
+import { Hotel } from '../../../core/domain/entities/hotel.entity';
+
+export const hotelsData: Hotel[] = [
+  {
+    id: 1,
+    name: "Trabzon Uzungöl Premium Resort",
+    slug: "trabzon-uzungol-premium-resort",
+    location: "Uzungöl Mevkii, Çaykara / Trabzon",
+    rating: 4.9,
+    reviews: 124,
+    price: 3500,
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1000&auto=format&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=800&auto=format&fit=crop",
+    ],
+    tags: ["Lüks", "Doğa Manzaralı"],
+    hasThermal: false,
+    features: ["wifi", "breakfast", "parking"],
+    description:
+      "Uzungöl'ün eşsiz manzarasına karşı konumlanan Premium Resort, misafirlerine doğayla iç içe, huzur dolu ve lüks bir konaklama deneyimi sunuyor. Sabahları kuş sesleri eşliğinde yöresel serpme kahvaltınızı yaparken, akşamları şömine başında Karadeniz çayınızı yudumlayabilirsiniz. Tesisimiz ailelere ve çiftlere özel odalarıyla yılın 12 ayı hizmet vermektedir.",
+    detailedFeatures: [
+      { icon: "wifi", text: "Ücretsiz Yüksek Hızlı WiFi" },
+      { icon: "coffee", text: "Açık Büfe / Serpme Kahvaltı" },
+      { icon: "car", text: "Ücretsiz Özel Otopark" },
+      { icon: "wind", text: "Klimalı Odalar" },
+      { icon: "utensils", text: "A La Carte Restoran" },
+    ],
+    rooms: [
+      { name: "Standart Dağ Manzaralı Oda", price: 3500, capacity: "2 Yetişkin", bed: "1 Çift Kişilik Yatak" },
+      { name: "Deluxe Göl Manzaralı Oda", price: 4800, capacity: "2 Yetişkin + 1 Çocuk", bed: "1 Çift Kişilik Yatak + 1 Kanepe" },
+      { name: "Premium Aile Süiti", price: 7500, capacity: "4 Yetişkin", bed: "2 Yatak Odası" },
+    ],
+  },
+  {
+    id: 2,
+    name: "Hıdırnebi Termal Spa Hotel",
+    slug: "hidirnebi-termal-spa-hotel",
+    location: "Akçaabat, Trabzon",
+    rating: 4.8,
+    reviews: 89,
+    price: 4200,
+    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1000&auto=format&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=800&auto=format&fit=crop",
+    ],
+    tags: ["Termal", "Spa", "Aile"],
+    hasThermal: true,
+    features: ["wifi", "breakfast", "pool"],
+    description:
+      "Hıdırnebi'nin serin yaylasında yer alan bu termal spa oteli, doğanın ortasında şifalı termal sularıyla misafirlerine eşsiz bir sağlık ve dinlenme deneyimi sunmaktadır. Aile dostu tasarımı ve profesyonel spa hizmetleriyle hem rahatlamak hem de sağlığınızı yenilemek için ideal bir tercih.",
+    detailedFeatures: [
+      { icon: "waves", text: "Kapalı Termal Havuz" },
+      { icon: "sparkles", text: "Spa & Masaj Merkezi" },
+      { icon: "wifi", text: "Ücretsiz WiFi" },
+      { icon: "coffee", text: "Kahvaltı Dahil" },
+      { icon: "users", text: "Çocuk Oyun Alanı" },
+    ],
+    rooms: [
+      { name: "Standart Oda", price: 4200, capacity: "2 Yetişkin", bed: "1 Çift Kişilik Yatak" },
+      { name: "Termal Suit", price: 6500, capacity: "2 Yetişkin + 1 Çocuk", bed: "1 Geniş Yatak" },
+    ],
+  },
+  {
+    id: 3,
+    name: "Trabzon City Center Hotel",
+    slug: "trabzon-city-center-hotel",
+    location: "Ortahisar, Trabzon",
+    rating: 4.7,
+    reviews: 215,
+    price: 2100,
+    image: "https://images.unsplash.com/photo-1551882547-ff40c0d589d9?q=80&w=1000&auto=format&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1551882547-ff40c0d589d9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800&auto=format&fit=crop",
+    ],
+    tags: ["Şehir Merkezi", "İş Seyahati"],
+    hasThermal: false,
+    features: ["wifi", "breakfast"],
+    description:
+      "Trabzon şehir merkezinin kalbinde yer alan City Center Hotel, iş seyahatları ve kültür turları için ideal bir konum sunuyor. Tüm önemli noktalara yürüme mesafesinde olan otelimiz, modern odaları ve profesyonel hizmet anlayışıyla sizi karşılıyor.",
+    detailedFeatures: [
+      { icon: "wifi", text: "Ücretsiz Yüksek Hızlı WiFi" },
+      { icon: "coffee", text: "Kahvaltı Dahil" },
+      { icon: "car", text: "Vale Park Hizmeti" },
+      { icon: "utensils", text: "Restoran & Kafe" },
+    ],
+    rooms: [
+      { name: "Standart Tek Kişilik Oda", price: 2100, capacity: "1 Yetişkin", bed: "1 Tek Kişilik Yatak" },
+      { name: "Deluxe Çift Kişilik Oda", price: 3200, capacity: "2 Yetişkin", bed: "1 Çift Kişilik Yatak" },
+    ],
+  },
+  {
+    id: 4,
+    name: "Sümela Doğa Evleri",
+    slug: "sumela-doga-evleri",
+    location: "Maçka, Trabzon",
+    rating: 4.9,
+    reviews: 156,
+    price: 2800,
+    image: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=1000&auto=format&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1543198571-5ee9a30ab27a?q=80&w=800&auto=format&fit=crop",
+    ],
+    tags: ["Butik", "Doğa Manzaralı"],
+    hasThermal: false,
+    features: ["wifi", "breakfast", "parking"],
+    description:
+      "Sümela Manastırı'nın eteklerinde, ormanlar içinde saklı bu butik tesiste doğanın sesini duyacaksınız. Ahşap dekorasyonlu odaları ve organik kahvaltısıyla gerçek bir Karadeniz tatili yaşayacaksınız.",
+    detailedFeatures: [
+      { icon: "treePine", text: "Orman Manzarası" },
+      { icon: "coffee", text: "Organik Köy Kahvaltısı" },
+      { icon: "wifi", text: "Ücretsiz WiFi" },
+      { icon: "car", text: "Ücretsiz Otopark" },
+    ],
+    rooms: [
+      { name: "Standart Bungalov", price: 2800, capacity: "2 Yetişkin", bed: "1 Çift Kişilik Yatak" },
+      { name: "Aile Bungalov", price: 4200, capacity: "4 Kişi", bed: "2 Ayrı Yatak Odası" },
+    ],
+  },
+  {
+    id: 5,
+    name: "Ayder Termal & Spa Resort",
+    slug: "ayder-termal-spa-resort",
+    location: "Çamlıhemşin, Rize (Yakın Bölge)",
+    rating: 4.6,
+    reviews: 320,
+    price: 5100,
+    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1000&auto=format&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800&auto=format&fit=crop",
+    ],
+    tags: ["Termal", "Lüks"],
+    hasThermal: true,
+    features: ["wifi", "breakfast", "pool", "spa"],
+    description:
+      "Ayder Yaylası'nın etkileyici doğasında konumlanan bu lüks termal resort, doğal termal suların şifasını modern spa konforuyla buluşturuyor. Trabzon'a yakın konumuyla, kısa bir tatilde bile tam anlamıyla dinlenme imkânı sunuyor.",
+    detailedFeatures: [
+      { icon: "waves", text: "Doğal Termal Havuz" },
+      { icon: "sparkles", text: "Lüks Spa Merkezi" },
+      { icon: "wifi", text: "Ücretsiz WiFi" },
+      { icon: "coffee", text: "Açık Büfe Kahvaltı" },
+      { icon: "wind", text: "Klimalı Odalar" },
+      { icon: "utensils", text: "Fine Dining Restoran" },
+    ],
+    rooms: [
+      { name: "Deluxe Yayla Manzaralı Oda", price: 5100, capacity: "2 Yetişkin", bed: "1 King Size Yatak" },
+      { name: "Lüks Termal Suit", price: 8900, capacity: "2 Yetişkin", bed: "1 King Size Yatak + Jakuzi" },
+    ],
+  },
+  {
+    id: 6,
+    name: "Yomra Seaside Hotel",
+    slug: "yomra-seaside-hotel",
+    location: "Yomra, Trabzon",
+    rating: 4.5,
+    reviews: 180,
+    price: 1800,
+    image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=1000&auto=format&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1551882547-ff40c0d589d9?q=80&w=800&auto=format&fit=crop",
+    ],
+    tags: ["Deniz Manzaralı", "Ekonomik"],
+    hasThermal: false,
+    features: ["wifi", "parking"],
+    description:
+      "Karadeniz'in muhteşem manzarasına nazır bu sahil otelinde, denizin huzurunu doyasıya yaşayabilirsiniz. Ekonomik fiyatları ve samimi atmosferiyle aile tatilleri için mükemmel bir tercih.",
+    detailedFeatures: [
+      { icon: "waves", text: "Deniz Manzaralı Odalar" },
+      { icon: "wifi", text: "Ücretsiz WiFi" },
+      { icon: "car", text: "Ücretsiz Otopark" },
+    ],
+    rooms: [
+      { name: "Standart Oda", price: 1800, capacity: "2 Yetişkin", bed: "1 Çift Kişilik Yatak" },
+      { name: "Deniz Manzaralı Oda", price: 2400, capacity: "2 Yetişkin", bed: "1 Çift Kişilik Yatak" },
+    ],
+  },
+];

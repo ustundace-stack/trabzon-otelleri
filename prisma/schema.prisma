@@ -1,0 +1,130 @@
+// Prisma Schema File
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Hotel {
+  id               Int           @id @default(autoincrement())
+  name             String
+  slug             String        @unique
+  location         String
+  rating           Float         @default(0.0)
+  reviews          Int           @default(0)
+  price            Float
+  image            String
+  hasThermal       Boolean       @default(false)
+  description      String
+  
+  // Relations
+  images           HotelImage[]
+  tags             HotelTag[]
+  features         HotelFeature[] // Tesisin genel özellikleri (wifi, pool, vb)
+  detailedFeatures DetailedFeature[] // Detaylı metin/ikon bazlı özellikler
+  rooms            Room[]
+  reservations     Reservation[]
+
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+}
+
+model HotelImage {
+  id      Int    @id @default(autoincrement())
+  url     String
+  hotelId Int
+  hotel   Hotel  @relation(fields: [hotelId], references: [id], onDelete: Cascade)
+}
+
+model HotelTag {
+  id      Int    @id @default(autoincrement())
+  name    String
+  hotelId Int
+  hotel   Hotel  @relation(fields: [hotelId], references: [id], onDelete: Cascade)
+}
+
+model HotelFeature {
+  id      Int    @id @default(autoincrement())
+  name    String // Örneğin: 'wifi', 'breakfast', 'pool'
+  hotelId Int
+  hotel   Hotel  @relation(fields: [hotelId], references: [id], onDelete: Cascade)
+}
+
+model DetailedFeature {
+  id      Int    @id @default(autoincrement())
+  icon    String // Lucide icon name, e.g., 'wifi', 'coffee'
+  text    String // 'Ücretsiz Yüksek Hızlı WiFi'
+  hotelId Int
+  hotel   Hotel  @relation(fields: [hotelId], references: [id], onDelete: Cascade)
+}
+
+model Room {
+  id       Int    @id @default(autoincrement())
+  name     String
+  price    Float
+  capacity String
+  bed      String
+  hotelId  Int
+  hotel    Hotel  @relation(fields: [hotelId], references: [id], onDelete: Cascade)
+}
+
+model Reservation {
+  id           Int      @id @default(autoincrement())
+  reservationNo String  @unique // Örneğin: RES-1024
+  customerName String
+  customerEmail String
+  customerPhone String
+  checkIn      DateTime
+  checkOut     DateTime
+  adults       Int
+  children     Int      @default(0)
+  note         String?
+  totalAmount  Float
+  status       String   @default("pending") // pending, approved, rejected
+  
+  hotelId      Int
+  hotel        Hotel    @relation(fields: [hotelId], references: [id], onDelete: Restrict)
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model BlogPost {
+  id        Int      @id @default(autoincrement())
+  title     String
+  slug      String   @unique
+  excerpt   String
+  category  String
+  image     String
+  date      String   // Veya DateTime kullanılabilir, mevcut formata uygun String kullanıyoruz
+  readTime  String
+  
+  // Relations
+  content   BlogSection[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BlogSection {
+  id         Int      @id @default(autoincrement())
+  heading    String
+  text       String
+  blogPostId Int
+  blogPost   BlogPost @relation(fields: [blogPostId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String
+  password  String
+  role      String   @default("user") // admin, user
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
