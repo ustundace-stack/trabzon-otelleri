@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trabzon Otelleri 🏨
 
-## Getting Started
+Trabzon ve çevresindeki en iyi otelleri keşfetmenizi sağlayan premium bir konaklama platformu.
 
-First, run the development server:
+## 🌐 Canlı Site
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**[https://trabzon-otelleri.vercel.app](https://trabzon-otelleri.vercel.app)**
+
+## 🛠️ Teknoloji Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** Tailwind CSS v4
+- **UI:** shadcn/ui
+- **ORM:** Prisma
+- **Deployment:** Vercel
+- **Mimari:** Clean Architecture + DDD
+
+## 📁 Proje Yapısı
+
+```
+src/
+├── app/                    # Next.js App Router sayfaları
+├── components/
+│   ├── home/               # Ana sayfa bileşenleri
+│   ├── hotel/              # Otel filtreleme ve rezervasyon
+│   ├── shared/             # Ortak bileşenler (Navbar, Footer)
+│   └── ui/                 # shadcn/ui bileşenleri
+├── core/
+│   ├── domain/             # Domain entities
+│   └── application/        # Use Cases + Repository interfaces
+├── infrastructure/
+│   └── data/               # Mock + Prisma repository implementations
+└── lib/                    # Yardımcı araçlar
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Geliştirme
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Uygulama `http://localhost:3000` adresinde çalışır.
 
-## Learn More
+## 📦 Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Her `main` branch'ine push otomatik olarak Vercel'e deploy edilir.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git add .
+git commit -m "feat: yeni özellik"
+git push origin main
+# → Vercel otomatik deploy başlar
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 Sayfalar
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Sayfa | Route |
+|---|---|
+| Ana Sayfa | `/` |
+| Otel Listesi | `/oteller` |
+| Otel Detay | `/oteller/[slug]` |
+| Termal Oteller | `/oteller/termal` |
+| Lüks Oteller | `/oteller/luks` |
+| Butik Oteller | `/oteller/butik` |
+| Aile Otelleri | `/oteller/aile` |
+| Doğa Otelleri | `/oteller/doga` |
+| Şehir Otelleri | `/oteller/sehir` |
+| Blog | `/blog` |
+| Blog Detay | `/blog/[slug]` |
+| Hakkımızda | `/hakkimizda` |
+| İletişim | `/iletisim` |
+| SSS | `/sss` |
+| Admin | `/admin` |
